@@ -1,4 +1,5 @@
-const GAME_ADDRESS = "";
+require("dotenv").config();
+const GAME_ADDRESS = process.env.GAME_ADDRESS || "";
 
 async function main() {
   const game = await hre.ethers.getContractAt("Game1", GAME_ADDRESS);
@@ -11,7 +12,7 @@ async function main() {
 
 main()
   .then(() => process.exit(0))
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
     process.exit(1);
   });
